@@ -1,0 +1,36 @@
+#include "vars.h"
+
+void process_indicator(char* s, char* status);
+Droplet create_spherical_droplet(int num_phis, int num_thetas, double radius, Vertex **vertices);
+void destroy_droplet(Droplet *droplet);
+void print_surfaces_to_file(Droplet *droplet, const char *filename, const char *type);
+void print_vertices_to_file(Droplet *droplet, const char *filename, const char *type);
+void print_specs_to_file(Droplet *droplet, const char *filename, const char *type);
+Vertex calculate_center_of_mass(Droplet* droplet);
+double PE (Droplet *droplet);
+double SE(Droplet* droplet);
+double SE_bottom(Droplet* droplet);
+double delta_SE_hemi(Droplet* droplet, unsigned int theta, double scale_factor);
+double delta_PE_hemi(Droplet* droplet, unsigned int theta, double scale_factor);
+void scale_droplet(Droplet *droplet, double scale_factor);
+void normalize_volume(Droplet *droplet);
+void scale_row_spherical(Droplet *droplet, unsigned int theta, double scale_factor);
+double mc_etot_spherical(Droplet *droplet);
+void try_scale_random_row_spherical(Droplet *droplet);
+void mc_timestep_spherical(Droplet *droplet);
+Droplet create_half_droplet(int num_phis, int num_thetas, double radius, Vertex **vertices);
+void scale_row_hemi(Droplet *droplet, unsigned int theta, double scale_factor);
+double mc_etot_hemi(Droplet *droplet);
+void try_scale_random_row_hemi(Droplet *droplet);
+void try_scale_random_row_hemi_2(Droplet *droplet);
+void mc_timestep_hemi(Droplet *droplet);
+Vertex vertex_add(Vertex v1, Vertex v2);
+Vertex vertex_subtract(Vertex v1, Vertex v2);
+Vertex vertex_scalar_mult(Vertex v1, double s);
+Vertex vertex_scalar_mult(Vertex v1, double s);
+Vertex vertex_cross_product(Vertex v1, Vertex v2);
+double vertex_inner_product(Vertex v1, Vertex v2);
+double vertex_norm(Vertex v1);
+double vertex_span_area(Vertex v1, Vertex v2);
+double vertex_span_volume(Vertex v1, Vertex v2, Vertex v3);
+void reassign(Vertex *v1, double x, double y, double z);

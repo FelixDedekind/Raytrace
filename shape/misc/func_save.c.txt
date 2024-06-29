@@ -1,0 +1,805 @@
+Surface energy: 0.000003 
+^[[A^[[A^[[A
+    ~/De/Y/I/droplets  python3 plot_surface.py        ✔  9s  
+    ~/De/Y/I/droplets  gcc -o droplet_sim main.c misc/vars.c misc/func.c -lm
+    ~/De/Y/I/droplets  gcc -o droplet_sim main.c misc/vars.c misc/func.c -lm
+misc/func.c: In function ‘calc_volume’:
+misc/func.c:16:51: error: incompatible type for argument 1 of ‘vertex_span_volume’
+   16 |        double volume = vertex_span_volume(surface->v1, surface->v2, surface->v3);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+In file included from misc/func.c:1:
+misc/func.h:32:34: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   32 | double vertex_span_volume(Vertex v1, Vertex v2, Vertex v3);
+      |                           ~~~~~~~^~
+misc/func.c:16:64: error: incompatible type for argument 2 of ‘vertex_span_volume’
+   16 |  volume = vertex_span_volume(surface->v1, surface->v2, surface->v3);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+misc/func.h:32:45: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   32 | double vertex_span_volume(Vertex v1, Vertex v2, Vertex v3);
+      |                                      ~~~~~~~^~
+misc/func.c:16:77: error: incompatible type for argument 3 of ‘vertex_span_volume’
+   16 | = vertex_span_volume(surface->v1, surface->v2, surface->v3);
+      |                                                ~~~~~~~^~~~
+      |                                                       |
+      |                                                       Vertex *
+
+misc/func.h:32:56: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   32 | double vertex_span_volume(Vertex v1, Vertex v2, Vertex v3);
+      |                                                 ~~~~~~~^~
+misc/func.c: In function ‘calculate_center_of_mass’:
+misc/func.c:34:85: error: incompatible type for argument 1 of ‘vertex_add’
+   34 |  vertex_scalar_mult(vertex_add(vertex_add(surface->v1,surface->v2),surface->v1),1.0/4.0);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+misc/func.h:25:26: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   25 | Vertex vertex_add(Vertex v1, Vertex v2);
+      |                   ~~~~~~~^~
+misc/func.c:34:97: error: incompatible type for argument 2 of ‘vertex_add’
+   34 | ar_mult(vertex_add(vertex_add(surface->v1,surface->v2),surface->v1),1.0/4.0);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+misc/func.h:25:37: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   25 | Vertex vertex_add(Vertex v1, Vertex v2);
+      |                              ~~~~~~~^~
+misc/func.c:34:110: error: incompatible type for argument 2 of ‘vertex_add’
+   34 | x_add(vertex_add(surface->v1,surface->v2),surface->v1),1.0/4.0);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+misc/func.h:25:37: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   25 | Vertex vertex_add(Vertex v1, Vertex v2);
+      |                              ~~~~~~~^~
+misc/func.c:37:51: error: incompatible type for argument 1 of ‘vertex_span_volume’
+   37 |        double volume = vertex_span_volume(surface->v1, surface->v2, surface->v3);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+misc/func.h:32:34: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   32 | double vertex_span_volume(Vertex v1, Vertex v2, Vertex v3);
+      |                           ~~~~~~~^~
+misc/func.c:37:64: error: incompatible type for argument 2 of ‘vertex_span_volume’
+   37 |  volume = vertex_span_volume(surface->v1, surface->v2, surface->v3);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+misc/func.h:32:45: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   32 | double vertex_span_volume(Vertex v1, Vertex v2, Vertex v3);
+      |                                      ~~~~~~~^~
+misc/func.c:37:77: error: incompatible type for argument 3 of ‘vertex_span_volume’
+   37 | = vertex_span_volume(surface->v1, surface->v2, surface->v3);
+      |                                                ~~~~~~~^~~~
+      |                                                       |
+      |                                                       Vertex *
+
+misc/func.h:32:56: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   32 | double vertex_span_volume(Vertex v1, Vertex v2, Vertex v3);
+      |                                                 ~~~~~~~^~
+misc/func.c:48:36: error: incompatible type for argument 1 of ‘vertex_scalar_mult’
+   48 |     center = vertex_scalar_mult(1.0/total_volume);
+      |                                 ~~~^~~~~~~~~~~~~
+      |                                    |
+      |                                    double
+misc/func.h:26:34: note: expected ‘Vertex’ but argument is of type ‘double’
+   26 | Vertex vertex_scalar_mult(Vertex v1, double s);
+      |                           ~~~~~~~^~
+misc/func.c:48:14: error: too few arguments to function ‘vertex_scalar_mult’
+   48 |     center = vertex_scalar_mult(1.0/total_volume);
+      |              ^~~~~~~~~~~~~~~~~~
+misc/func.h:27:8: note: declared here
+   27 | Vertex vertex_scalar_mult(Vertex v1, double s);
+      |        ^~~~~~~~~~~~~~~~~~
+    ~/De/Y/I/droplets  gcc -o droplet_sim main.c misc/vars.c misc/func.c -lm
+misc/func.c: In function ‘calc_volume’:
+misc/func.c:16:51: error: incompatible type for argument 1 of ‘vertex_span_volume’
+   16 |        double volume = vertex_span_volume(surface->v1, surface->v2, surface->v3);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+In file included from misc/func.c:1:
+misc/func.h:32:34: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   32 | double vertex_span_volume(Vertex v1, Vertex v2, Vertex v3);
+      |                           ~~~~~~~^~
+misc/func.c:16:64: error: incompatible type for argument 2 of ‘vertex_span_volume’
+   16 |  volume = vertex_span_volume(surface->v1, surface->v2, surface->v3);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+misc/func.h:32:45: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   32 | double vertex_span_volume(Vertex v1, Vertex v2, Vertex v3);
+      |                                      ~~~~~~~^~
+misc/func.c:16:77: error: incompatible type for argument 3 of ‘vertex_span_volume’
+   16 | = vertex_span_volume(surface->v1, surface->v2, surface->v3);
+      |                                                ~~~~~~~^~~~
+      |                                                       |
+      |                                                       Vertex *
+
+misc/func.h:32:56: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   32 | double vertex_span_volume(Vertex v1, Vertex v2, Vertex v3);
+      |                                                 ~~~~~~~^~
+misc/func.c: In function ‘calculate_center_of_mass’:
+misc/func.c:34:85: error: incompatible type for argument 1 of ‘vertex_add’
+   34 |  vertex_scalar_mult(vertex_add(vertex_add(surface->v1,surface->v2),surface->v1),1.0/4.0);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+misc/func.h:25:26: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   25 | Vertex vertex_add(Vertex v1, Vertex v2);
+      |                   ~~~~~~~^~
+misc/func.c:34:97: error: incompatible type for argument 2 of ‘vertex_add’
+   34 | ar_mult(vertex_add(vertex_add(surface->v1,surface->v2),surface->v1),1.0/4.0);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+misc/func.h:25:37: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   25 | Vertex vertex_add(Vertex v1, Vertex v2);
+      |                              ~~~~~~~^~
+misc/func.c:34:110: error: incompatible type for argument 2 of ‘vertex_add’
+   34 | x_add(vertex_add(surface->v1,surface->v2),surface->v1),1.0/4.0);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+misc/func.h:25:37: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   25 | Vertex vertex_add(Vertex v1, Vertex v2);
+      |                              ~~~~~~~^~
+misc/func.c:37:51: error: incompatible type for argument 1 of ‘vertex_span_volume’
+   37 |        double volume = vertex_span_volume(surface->v1, surface->v2, surface->v3);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+misc/func.h:32:34: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   32 | double vertex_span_volume(Vertex v1, Vertex v2, Vertex v3);
+      |                           ~~~~~~~^~
+misc/func.c:37:64: error: incompatible type for argument 2 of ‘vertex_span_volume’
+   37 |  volume = vertex_span_volume(surface->v1, surface->v2, surface->v3);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+misc/func.h:32:45: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   32 | double vertex_span_volume(Vertex v1, Vertex v2, Vertex v3);
+      |                                      ~~~~~~~^~
+misc/func.c:37:77: error: incompatible type for argument 3 of ‘vertex_span_volume’
+   37 | = vertex_span_volume(surface->v1, surface->v2, surface->v3);
+      |                                                ~~~~~~~^~~~
+      |                                                       |
+      |                                                       Vertex *
+
+misc/func.h:32:56: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   32 | double vertex_span_volume(Vertex v1, Vertex v2, Vertex v3);
+      |                                                 ~~~~~~~^~
+    ~/De/Y/I/droplets  gcc -o droplet_sim main.c misc/vars.c misc/func.c -lm
+misc/func.c: In function ‘calc_volume’:
+misc/func.c:16:51: error: ‘surface’ is a pointer; did you mean to use ‘->’?
+   16 |        double volume = vertex_span_volume(surface.v1, surface.v2, surface.v3);
+      |                                                  ^
+      |                                                  ->
+misc/func.c:16:63: error: ‘surface’ is a pointer; did you mean to use ‘->’?
+   16 | e volume = vertex_span_volume(surface.v1, surface.v2, surface.v3);
+      |                                                  ^
+      |                                                  ->
+misc/func.c:16:75: error: ‘surface’ is a pointer; did you mean to use ‘->’?
+   16 | me = vertex_span_volume(surface.v1, surface.v2, surface.v3);
+      |                                                        ^
+      |                                                        ->
+misc/func.c: In function ‘calculate_center_of_mass’:
+misc/func.c:34:85: error: incompatible type for argument 1 of ‘vertex_add’
+   34 |  vertex_scalar_mult(vertex_add(vertex_add(surface->v1,surface->v2),surface->v1),1.0/4.0);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+In file included from misc/func.c:1:
+misc/func.h:25:26: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   25 | Vertex vertex_add(Vertex v1, Vertex v2);
+      |                   ~~~~~~~^~
+misc/func.c:34:97: error: incompatible type for argument 2 of ‘vertex_add’
+   34 | ar_mult(vertex_add(vertex_add(surface->v1,surface->v2),surface->v1),1.0/4.0);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+misc/func.h:25:37: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   25 | Vertex vertex_add(Vertex v1, Vertex v2);
+      |                              ~~~~~~~^~
+misc/func.c:34:110: error: incompatible type for argument 2 of ‘vertex_add’
+   34 | x_add(vertex_add(surface->v1,surface->v2),surface->v1),1.0/4.0);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+misc/func.h:25:37: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   25 | Vertex vertex_add(Vertex v1, Vertex v2);
+      |                              ~~~~~~~^~
+misc/func.c:37:51: error: incompatible type for argument 1 of ‘vertex_span_volume’
+   37 |        double volume = vertex_span_volume(surface->v1, surface->v2, surface->v3);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+misc/func.h:32:34: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   32 | double vertex_span_volume(Vertex v1, Vertex v2, Vertex v3);
+      |                           ~~~~~~~^~
+misc/func.c:37:64: error: incompatible type for argument 2 of ‘vertex_span_volume’
+   37 |  volume = vertex_span_volume(surface->v1, surface->v2, surface->v3);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+misc/func.h:32:45: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   32 | double vertex_span_volume(Vertex v1, Vertex v2, Vertex v3);
+      |                                      ~~~~~~~^~
+misc/func.c:37:77: error: incompatible type for argument 3 of ‘vertex_span_volume’
+   37 | = vertex_span_volume(surface->v1, surface->v2, surface->v3);
+      |                                                ~~~~~~~^~~~
+      |                                                       |
+      |                                                       Vertex *
+
+misc/func.h:32:56: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   32 | double vertex_span_volume(Vertex v1, Vertex v2, Vertex v3);
+      |                                                 ~~~~~~~^~
+    ~/De/Y/I/droplets  gcc -o droplet_sim main.c misc/vars.c misc/func.c -lm
+misc/func.c: In function ‘calc_volume’:
+misc/func.c:16:51: error: incompatible type for argument 1 of ‘vertex_span_volume’
+   16 |        double volume = vertex_span_volume(surface->v1, surface->v2, surface->v3);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+In file included from misc/func.c:1:
+misc/func.h:32:34: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   32 | double vertex_span_volume(Vertex v1, Vertex v2, Vertex v3);
+      |                           ~~~~~~~^~
+misc/func.c:16:64: error: incompatible type for argument 2 of ‘vertex_span_volume’
+   16 |  volume = vertex_span_volume(surface->v1, surface->v2, surface->v3);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+misc/func.h:32:45: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   32 | double vertex_span_volume(Vertex v1, Vertex v2, Vertex v3);
+      |                                      ~~~~~~~^~
+misc/func.c:16:77: error: incompatible type for argument 3 of ‘vertex_span_volume’
+   16 | = vertex_span_volume(surface->v1, surface->v2, surface->v3);
+      |                                                ~~~~~~~^~~~
+      |                                                       |
+      |                                                       Vertex *
+
+misc/func.h:32:56: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   32 | double vertex_span_volume(Vertex v1, Vertex v2, Vertex v3);
+      |                                                 ~~~~~~~^~
+misc/func.c: In function ‘calculate_center_of_mass’:
+misc/func.c:34:85: error: incompatible type for argument 1 of ‘vertex_add’
+   34 |  vertex_scalar_mult(vertex_add(vertex_add(surface->v1,surface->v2),surface->v1),1.0/4.0);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+misc/func.h:25:26: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   25 | Vertex vertex_add(Vertex v1, Vertex v2);
+      |                   ~~~~~~~^~
+misc/func.c:34:97: error: incompatible type for argument 2 of ‘vertex_add’
+   34 | ar_mult(vertex_add(vertex_add(surface->v1,surface->v2),surface->v1),1.0/4.0);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+misc/func.h:25:37: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   25 | Vertex vertex_add(Vertex v1, Vertex v2);
+      |                              ~~~~~~~^~
+misc/func.c:34:110: error: incompatible type for argument 2 of ‘vertex_add’
+   34 | x_add(vertex_add(surface->v1,surface->v2),surface->v1),1.0/4.0);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+misc/func.h:25:37: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   25 | Vertex vertex_add(Vertex v1, Vertex v2);
+      |                              ~~~~~~~^~
+misc/func.c:37:51: error: incompatible type for argument 1 of ‘vertex_span_volume’
+   37 |        double volume = vertex_span_volume(surface->v1, surface->v2, surface->v3);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+misc/func.h:32:34: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   32 | double vertex_span_volume(Vertex v1, Vertex v2, Vertex v3);
+      |                           ~~~~~~~^~
+misc/func.c:37:64: error: incompatible type for argument 2 of ‘vertex_span_volume’
+   37 |  volume = vertex_span_volume(surface->v1, surface->v2, surface->v3);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+misc/func.h:32:45: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   32 | double vertex_span_volume(Vertex v1, Vertex v2, Vertex v3);
+      |                                      ~~~~~~~^~
+misc/func.c:37:77: error: incompatible type for argument 3 of ‘vertex_span_volume’
+   37 | = vertex_span_volume(surface->v1, surface->v2, surface->v3);
+      |                                                ~~~~~~~^~~~
+      |                                                       |
+      |                                                       Vertex *
+
+misc/func.h:32:56: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   32 | double vertex_span_volume(Vertex v1, Vertex v2, Vertex v3);
+      |                                                 ~~~~~~~^~
+misc/func.c: At top level:
+misc/func.c:878:8: error: conflicting types for ‘vertex_add’; have ‘Vertex(Vertex *, Vertex *)’
+  878 | Vertex vertex_add(Vertex *v1, Vertex *v2) {
+      |        ^~~~~~~~~~
+misc/func.h:25:8: note: previous declaration of ‘vertex_add’ with type ‘Vertex(Vertex,  Vertex)’
+   25 | Vertex vertex_add(Vertex v1, Vertex v2);
+      |        ^~~~~~~~~~
+misc/func.c: In function ‘vertex_add’:
+misc/func.c:879:20: error: ‘v1’ is a pointer; did you mean to use ‘->’?
+  879 |     Vertex v3 = {v1.x + v2.x, v1.y + v2.y, v1.z + v2.z};
+      |                    ^
+      |                    ->
+misc/func.c:879:27: error: ‘v2’ is a pointer; did you mean to use ‘->’?
+  879 |     Vertex v3 = {v1.x + v2.x, v1.y + v2.y, v1.z + v2.z};
+      |                           ^
+      |                           ->
+misc/func.c:879:33: error: ‘v1’ is a pointer; did you mean to use ‘->’?
+  879 |     Vertex v3 = {v1.x + v2.x, v1.y + v2.y, v1.z + v2.z};
+      |                                 ^
+      |                                 ->
+misc/func.c:879:40: error: ‘v2’ is a pointer; did you mean to use ‘->’?
+  879 |     Vertex v3 = {v1.x + v2.x, v1.y + v2.y, v1.z + v2.z};
+      |                                        ^
+      |                                        ->
+misc/func.c:879:46: error: ‘v1’ is a pointer; did you mean to use ‘->’?
+  879 |     Vertex v3 = {v1.x + v2.x, v1.y + v2.y, v1.z + v2.z};
+      |                                              ^
+      |                                              ->
+misc/func.c:879:53: error: ‘v2’ is a pointer; did you mean to use ‘->’?
+  879 |     Vertex v3 = {v1.x + v2.x, v1.y + v2.y, v1.z + v2.z};
+      |                                                     ^
+      |                                                     ->
+misc/func.c: At top level:
+misc/func.c:883:8: error: conflicting types for ‘vertex_scalar_mult’; have ‘Vertex(Vertex *, double)’
+  883 | Vertex vertex_scalar_mult(Vertex *v1, double s) {
+      |        ^~~~~~~~~~~~~~~~~~
+misc/func.h:27:8: note: previous declaration of ‘vertex_scalar_mult’ with type ‘Vertex(Vertex,  double)’
+   27 | Vertex vertex_scalar_mult(Vertex v1, double s);
+      |        ^~~~~~~~~~~~~~~~~~
+misc/func.c: In function ‘vertex_scalar_mult’:
+misc/func.c:884:20: error: ‘v1’ is a pointer; did you mean to use ‘->’?
+  884 |     Vertex v2 = {v1.x * s, v1.y * s, v1.z * s};
+      |                    ^
+      |                    ->
+misc/func.c:884:30: error: ‘v1’ is a pointer; did you mean to use ‘->’?
+  884 |     Vertex v2 = {v1.x * s, v1.y * s, v1.z * s};
+      |                              ^
+      |                              ->
+misc/func.c:884:40: error: ‘v1’ is a pointer; did you mean to use ‘->’?
+  884 |     Vertex v2 = {v1.x * s, v1.y * s, v1.z * s};
+      |                                        ^
+      |                                        ->
+misc/func.c: At top level:
+misc/func.c:888:8: error: conflicting types for ‘vertex_cross_product’; have ‘Vertex(Vertex *, Vertex *)’
+  888 | Vertex vertex_cross_product(Vertex *v1, Vertex *v2) {
+      |        ^~~~~~~~~~~~~~~~~~~~
+misc/func.h:28:8: note: previous declaration of ‘vertex_cross_product’ with type ‘Vertex(Vertex,  Vertex)’
+   28 | Vertex vertex_cross_product(Vertex v1, Vertex v2);
+      |        ^~~~~~~~~~~~~~~~~~~~
+misc/func.c: In function ‘vertex_cross_product’:
+misc/func.c:889:20: error: ‘v1’ is a pointer; did you mean to use ‘->’?
+  889 |     Vertex v3 = {v1.y * v2.z - v1.z * v2.y, v1.z * v2.x - v1.x * v2.z, v1.x * v2.y - v1.y * v2.x};
+      |                    ^
+      |                    ->
+misc/func.c:889:27: error: ‘v2’ is a pointer; did you mean to use ‘->’?
+  889 |     Vertex v3 = {v1.y * v2.z - v1.z * v2.y, v1.z * v2.x - v1.x * v2.z, v1.x * v2.y - v1.y * v2.x};
+      |                           ^
+      |                           ->
+misc/func.c:889:34: error: ‘v1’ is a pointer; did you mean to use ‘->’?
+  889 |     Vertex v3 = {v1.y * v2.z - v1.z * v2.y, v1.z * v2.x - v1.x * v2.z, v1.x * v2.y - v1.y * v2.x};
+      |                                  ^
+      |                                  ->
+misc/func.c:889:41: error: ‘v2’ is a pointer; did you mean to use ‘->’?
+  889 |     Vertex v3 = {v1.y * v2.z - v1.z * v2.y, v1.z * v2.x - v1.x * v2.z, v1.x * v2.y - v1.y * v2.x};
+      |                                         ^
+      |                                         ->
+misc/func.c:889:47: error: ‘v1’ is a pointer; did you mean to use ‘->’?
+  889 |     Vertex v3 = {v1.y * v2.z - v1.z * v2.y, v1.z * v2.x - v1.x * v2.z, v1.x * v2.y - v1.y * v2.x};
+      |                                               ^
+      |                                               ->
+misc/func.c:889:54: error: ‘v2’ is a pointer; did you mean to use ‘->’?
+  889 | Vertex v3 = {v1.y * v2.z - v1.z * v2.y, v1.z * v2.x - v1.x * v2.z, v1.x * v2.y - v1.y * v2.x};
+      |                                                  ^
+      |                                                  ->
+misc/func.c:889:61: error: ‘v1’ is a pointer; did you mean to use ‘->’?
+  889 | v3 = {v1.y * v2.z - v1.z * v2.y, v1.z * v2.x - v1.x * v2.z, v1.x * v2.y - v1.y * v2.x};
+      |                                                  ^
+      |                                                  ->
+misc/func.c:889:68: error: ‘v2’ is a pointer; did you mean to use ‘->’?
+  889 | 1.y * v2.z - v1.z * v2.y, v1.z * v2.x - v1.x * v2.z, v1.x * v2.y - v1.y * v2.x};
+      |                                                  ^
+      |                                                  ->
+misc/func.c:889:74: error: ‘v1’ is a pointer; did you mean to use ‘->’?
+  889 | v2.z - v1.z * v2.y, v1.z * v2.x - v1.x * v2.z, v1.x * v2.y - v1.y * v2.x};
+      |                                                  ^
+      |                                                  ->
+misc/func.c:889:81: error: ‘v2’ is a pointer; did you mean to use ‘->’?
+  889 | v1.z * v2.y, v1.z * v2.x - v1.x * v2.z, v1.x * v2.y - v1.y * v2.x};
+      |                                                  ^
+      |                                                  ->
+misc/func.c:889:88: error: ‘v1’ is a pointer; did you mean to use ‘->’?
+  889 | v2.y, v1.z * v2.x - v1.x * v2.z, v1.x * v2.y - v1.y * v2.x};
+      |                                                  ^
+      |                                                  ->
+misc/func.c:889:95: error: ‘v2’ is a pointer; did you mean to use ‘->’?
+  889 | v2.y, v1.z * v2.x - v1.x * v2.z, v1.x * v2.y - v1.y * v2.x};
+      |                                                         ^
+      |                                                         ->
+misc/func.c: At top level:
+misc/func.c:893:8: error: conflicting types for ‘vertex_inner_product’; have ‘double(Vertex *, Vertex *)’
+  893 | double vertex_inner_product(Vertex *v1, Vertex *v2) {
+      |        ^~~~~~~~~~~~~~~~~~~~
+misc/func.h:29:8: note: previous declaration of ‘vertex_inner_product’ with type ‘double(Vertex,  Vertex)’
+   29 | double vertex_inner_product(Vertex v1, Vertex v2);
+      |        ^~~~~~~~~~~~~~~~~~~~
+misc/func.c: In function ‘vertex_inner_product’:
+misc/func.c:894:14: error: ‘v1’ is a pointer; did you mean to use ‘->’?
+  894 |     return v1.x * v2.x + v1.y * v2.y + v1.z * v2.z;
+      |              ^
+      |              ->
+misc/func.c:894:21: error: ‘v2’ is a pointer; did you mean to use ‘->’?
+  894 |     return v1.x * v2.x + v1.y * v2.y + v1.z * v2.z;
+      |                     ^
+      |                     ->
+misc/func.c:894:28: error: ‘v1’ is a pointer; did you mean to use ‘->’?
+  894 |     return v1.x * v2.x + v1.y * v2.y + v1.z * v2.z;
+      |                            ^
+      |                            ->
+misc/func.c:894:35: error: ‘v2’ is a pointer; did you mean to use ‘->’?
+  894 |     return v1.x * v2.x + v1.y * v2.y + v1.z * v2.z;
+      |                                   ^
+      |                                   ->
+misc/func.c:894:42: error: ‘v1’ is a pointer; did you mean to use ‘->’?
+  894 |     return v1.x * v2.x + v1.y * v2.y + v1.z * v2.z;
+      |                                          ^
+      |                                          ->
+misc/func.c:894:49: error: ‘v2’ is a pointer; did you mean to use ‘->’?
+  894 |     return v1.x * v2.x + v1.y * v2.y + v1.z * v2.z;
+      |                                                 ^
+      |                                                 ->
+misc/func.c: At top level:
+misc/func.c:897:8: error: conflicting types for ‘vertex_norm’; have ‘double(Vertex *)’
+  897 | double vertex_norm(Vertex *v1) {
+      |        ^~~~~~~~~~~
+misc/func.h:30:8: note: previous declaration of ‘vertex_norm’ with type ‘double(Vertex)’
+   30 | double vertex_norm(Vertex v1);
+      |        ^~~~~~~~~~~
+misc/func.c: In function ‘vertex_norm’:
+misc/func.c:898:19: error: ‘v1’ is a pointer; did you mean to use ‘->’?
+  898 |     return sqrt(v1.x * v1.x + v1.y * v1.y + v1.z * v1.z);
+      |                   ^
+      |                   ->
+misc/func.c:898:26: error: ‘v1’ is a pointer; did you mean to use ‘->’?
+  898 |     return sqrt(v1.x * v1.x + v1.y * v1.y + v1.z * v1.z);
+      |                          ^
+      |                          ->
+misc/func.c:898:33: error: ‘v1’ is a pointer; did you mean to use ‘->’?
+  898 |     return sqrt(v1.x * v1.x + v1.y * v1.y + v1.z * v1.z);
+      |                                 ^
+      |                                 ->
+misc/func.c:898:40: error: ‘v1’ is a pointer; did you mean to use ‘->’?
+  898 |     return sqrt(v1.x * v1.x + v1.y * v1.y + v1.z * v1.z);
+      |                                        ^
+      |                                        ->
+misc/func.c:898:47: error: ‘v1’ is a pointer; did you mean to use ‘->’?
+  898 |     return sqrt(v1.x * v1.x + v1.y * v1.y + v1.z * v1.z);
+      |                                               ^
+      |                                               ->
+misc/func.c:898:54: error: ‘v1’ is a pointer; did you mean to use ‘->’?
+  898 |     return sqrt(v1.x * v1.x + v1.y * v1.y + v1.z * v1.z);
+      |                                                      ^
+      |                                                      ->
+misc/func.c: At top level:
+misc/func.c:901:8: error: conflicting types for ‘vertex_span_area’; have ‘double(Vertex *, Vertex *)’
+  901 | double vertex_span_area(Vertex *v1, Vertex *v2) {
+      |        ^~~~~~~~~~~~~~~~
+misc/func.h:31:8: note: previous declaration of ‘vertex_span_area’ with type ‘double(Vertex,  Vertex)’
+   31 | double vertex_span_area(Vertex v1, Vertex v2);
+      |        ^~~~~~~~~~~~~~~~
+misc/func.c: In function ‘vertex_span_area’:
+misc/func.c:902:24: error: incompatible type for argument 1 of ‘vertex_norm’
+  902 |     return vertex_norm(vertex_cross_product(v1, v2))/2.0;
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                        |
+      |                        Vertex
+misc/func.c:897:28: note: expected ‘Vertex *’ but argument is of type ‘Vertex’
+  897 | double vertex_norm(Vertex *v1) {
+      |                    ~~~~~~~~^~
+misc/func.c: At top level:
+misc/func.c:905:8: error: conflicting types for ‘vertex_span_volume’; have ‘double(Vertex *, Vertex *, Vertex *)’
+  905 | double vertex_span_volume(Vertex *v1, Vertex *v2, Vertex *v3) {
+      |        ^~~~~~~~~~~~~~~~~~
+misc/func.h:32:8: note: previous declaration of ‘vertex_span_volume’ with type ‘double(Vertex,  Vertex,  Vertex)’
+   32 | double vertex_span_volume(Vertex v1, Vertex v2, Vertex v3);
+      |        ^~~~~~~~~~~~~~~~~~
+misc/func.c: In function ‘vertex_span_volume’:
+misc/func.c:906:33: error: incompatible type for argument 1 of ‘vertex_inner_product’
+  906 |     return vertex_inner_product(vertex_cross_product(v1,v2),v3)/6.0;         // voulume of tetrahedron is 1/6 of parrallelepiped
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                 |
+      |                                 Vertex
+misc/func.c:893:37: note: expected ‘Vertex *’ but argument is of type ‘Vertex’
+  893 | double vertex_inner_product(Vertex *v1, Vertex *v2) {
+      |                             ~~~~~~~~^~
+misc/func.c: At top level:
+misc/func.c:909:6: error: conflicting types for ‘reassign’; have ‘void(Vertex *, double,  double,  double)’
+  909 | void reassign(Vertex *v1, double x, double y, double z) {
+      |      ^~~~~~~~
+misc/func.h:33:6: note: previous declaration of ‘reassign’ with type ‘void(Vertex,  double,  double,  double)’
+   33 | void reassign(Vertex v1, double x, double y, double z);
+      |      ^~~~~~~~
+misc/func.c: In function ‘reassign’:
+misc/func.c:910:7: error: ‘v1’ is a pointer; did you mean to use ‘->’?
+  910 |     v1.x = x;
+      |       ^
+      |       ->
+misc/func.c:911:7: error: ‘v1’ is a pointer; did you mean to use ‘->’?
+  911 |     v1.y = y;
+      |       ^
+      |       ->
+misc/func.c:912:7: error: ‘v1’ is a pointer; did you mean to use ‘->’?
+  912 |     v1.z = z;
+      |       ^
+      |       ->
+    ~/De/Y/I/droplets  gcc -o droplet_sim main.c misc/vars.c misc/func.c -lm
+misc/func.c: In function ‘calc_volume’:
+misc/func.c:16:51: error: incompatible type for argument 1 of ‘vertex_span_volume’
+   16 |        double volume = vertex_span_volume(surface->v1, surface->v2, surface->v3);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+In file included from misc/func.c:1:
+misc/func.h:32:34: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   32 | double vertex_span_volume(Vertex v1, Vertex v2, Vertex v3);
+      |                           ~~~~~~~^~
+misc/func.c:16:64: error: incompatible type for argument 2 of ‘vertex_span_volume’
+   16 |  volume = vertex_span_volume(surface->v1, surface->v2, surface->v3);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+misc/func.h:32:45: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   32 | double vertex_span_volume(Vertex v1, Vertex v2, Vertex v3);
+      |                                      ~~~~~~~^~
+misc/func.c:16:77: error: incompatible type for argument 3 of ‘vertex_span_volume’
+   16 | = vertex_span_volume(surface->v1, surface->v2, surface->v3);
+      |                                                ~~~~~~~^~~~
+      |                                                       |
+      |                                                       Vertex *
+
+misc/func.h:32:56: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   32 | double vertex_span_volume(Vertex v1, Vertex v2, Vertex v3);
+      |                                                 ~~~~~~~^~
+misc/func.c: In function ‘calculate_center_of_mass’:
+misc/func.c:34:85: error: incompatible type for argument 1 of ‘vertex_add’
+   34 |  vertex_scalar_mult(vertex_add(vertex_add(surface->v1,surface->v2),surface->v1),1.0/4.0);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+misc/func.h:25:26: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   25 | Vertex vertex_add(Vertex v1, Vertex v2);
+      |                   ~~~~~~~^~
+misc/func.c:34:97: error: incompatible type for argument 2 of ‘vertex_add’
+   34 | ar_mult(vertex_add(vertex_add(surface->v1,surface->v2),surface->v1),1.0/4.0);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+misc/func.h:25:37: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   25 | Vertex vertex_add(Vertex v1, Vertex v2);
+      |                              ~~~~~~~^~
+misc/func.c:34:110: error: incompatible type for argument 2 of ‘vertex_add’
+   34 | x_add(vertex_add(surface->v1,surface->v2),surface->v1),1.0/4.0);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+misc/func.h:25:37: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   25 | Vertex vertex_add(Vertex v1, Vertex v2);
+      |                              ~~~~~~~^~
+misc/func.c:37:51: error: incompatible type for argument 1 of ‘vertex_span_volume’
+   37 |        double volume = vertex_span_volume(surface->v1, surface->v2, surface->v3);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+misc/func.h:32:34: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   32 | double vertex_span_volume(Vertex v1, Vertex v2, Vertex v3);
+      |                           ~~~~~~~^~
+misc/func.c:37:64: error: incompatible type for argument 2 of ‘vertex_span_volume’
+   37 |  volume = vertex_span_volume(surface->v1, surface->v2, surface->v3);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+misc/func.h:32:45: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   32 | double vertex_span_volume(Vertex v1, Vertex v2, Vertex v3);
+      |                                      ~~~~~~~^~
+misc/func.c:37:77: error: incompatible type for argument 3 of ‘vertex_span_volume’
+   37 | = vertex_span_volume(surface->v1, surface->v2, surface->v3);
+      |                                                ~~~~~~~^~~~
+      |                                                       |
+      |                                                       Vertex *
+
+misc/func.h:32:56: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   32 | double vertex_span_volume(Vertex v1, Vertex v2, Vertex v3);
+      |                                                 ~~~~~~~^~
+misc/func.c:48:33: error: invalid type argument of unary ‘*’ (have ‘Vertex’)
+   48 |     center = vertex_scalar_mult(*center, 1.0/total_volume);
+      |                                 ^~~~~~~
+    ~/De/Y/I/droplets  gcc -o droplet_sim main.c misc/vars.c misc/func.c -lm
+misc/func.c: In function ‘calc_volume’:
+misc/func.c:16:51: error: incompatible type for argument 1 of ‘vertex_span_volume’
+   16 |        double volume = vertex_span_volume(surface->v1, surface->v2, surface->v3);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+In file included from misc/func.c:1:
+misc/func.h:32:34: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   32 | double vertex_span_volume(Vertex v1, Vertex v2, Vertex v3);
+      |                           ~~~~~~~^~
+misc/func.c:16:64: error: incompatible type for argument 2 of ‘vertex_span_volume’
+   16 |  volume = vertex_span_volume(surface->v1, surface->v2, surface->v3);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+misc/func.h:32:45: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   32 | double vertex_span_volume(Vertex v1, Vertex v2, Vertex v3);
+      |                                      ~~~~~~~^~
+misc/func.c:16:77: error: incompatible type for argument 3 of ‘vertex_span_volume’
+   16 | = vertex_span_volume(surface->v1, surface->v2, surface->v3);
+      |                                                ~~~~~~~^~~~
+      |                                                       |
+      |                                                       Vertex *
+
+misc/func.h:32:56: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   32 | double vertex_span_volume(Vertex v1, Vertex v2, Vertex v3);
+      |                                                 ~~~~~~~^~
+misc/func.c: In function ‘calculate_center_of_mass’:
+misc/func.c:34:85: error: incompatible type for argument 1 of ‘vertex_add’
+   34 |  vertex_scalar_mult(vertex_add(vertex_add(surface->v1,surface->v2),surface->v1),1.0/4.0);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+misc/func.h:25:26: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   25 | Vertex vertex_add(Vertex v1, Vertex v2);
+      |                   ~~~~~~~^~
+misc/func.c:34:97: error: incompatible type for argument 2 of ‘vertex_add’
+   34 | ar_mult(vertex_add(vertex_add(surface->v1,surface->v2),surface->v1),1.0/4.0);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+misc/func.h:25:37: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   25 | Vertex vertex_add(Vertex v1, Vertex v2);
+      |                              ~~~~~~~^~
+misc/func.c:34:110: error: incompatible type for argument 2 of ‘vertex_add’
+   34 | x_add(vertex_add(surface->v1,surface->v2),surface->v1),1.0/4.0);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+misc/func.h:25:37: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   25 | Vertex vertex_add(Vertex v1, Vertex v2);
+      |                              ~~~~~~~^~
+misc/func.c:37:51: error: incompatible type for argument 1 of ‘vertex_span_volume’
+   37 |        double volume = vertex_span_volume(surface->v1, surface->v2, surface->v3);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+misc/func.h:32:34: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   32 | double vertex_span_volume(Vertex v1, Vertex v2, Vertex v3);
+      |                           ~~~~~~~^~
+misc/func.c:37:64: error: incompatible type for argument 2 of ‘vertex_span_volume’
+   37 |  volume = vertex_span_volume(surface->v1, surface->v2, surface->v3);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+misc/func.h:32:45: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   32 | double vertex_span_volume(Vertex v1, Vertex v2, Vertex v3);
+      |                                      ~~~~~~~^~
+misc/func.c:37:77: error: incompatible type for argument 3 of ‘vertex_span_volume’
+   37 | = vertex_span_volume(surface->v1, surface->v2, surface->v3);
+      |                                                ~~~~~~~^~~~
+      |                                                       |
+      |                                                       Vertex *
+
+misc/func.h:32:56: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   32 | double vertex_span_volume(Vertex v1, Vertex v2, Vertex v3);
+      |                                                 ~~~~~~~^~
+    ~/De/Y/I/droplets  gcc -o droplet_sim main.c misc/vars.c misc/func.c -lm
+misc/func.c: In function ‘calculate_center_of_mass’:
+misc/func.c:34:85: error: incompatible type for argument 1 of ‘vertex_add’
+   34 |  vertex_scalar_mult(vertex_add(vertex_add(surface->v1,surface->v2),surface->v1),1.0/4.0);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+In file included from misc/func.c:1:
+misc/func.h:25:26: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   25 | Vertex vertex_add(Vertex v1, Vertex v2);
+      |                   ~~~~~~~^~
+misc/func.c:34:97: error: incompatible type for argument 2 of ‘vertex_add’
+   34 | ar_mult(vertex_add(vertex_add(surface->v1,surface->v2),surface->v1),1.0/4.0);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+misc/func.h:25:37: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   25 | Vertex vertex_add(Vertex v1, Vertex v2);
+      |                              ~~~~~~~^~
+misc/func.c:34:110: error: incompatible type for argument 2 of ‘vertex_add’
+   34 | x_add(vertex_add(surface->v1,surface->v2),surface->v1),1.0/4.0);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+misc/func.h:25:37: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   25 | Vertex vertex_add(Vertex v1, Vertex v2);
+      |                              ~~~~~~~^~
+misc/func.c:37:51: error: incompatible type for argument 1 of ‘vertex_span_volume’
+   37 |        double volume = vertex_span_volume(surface->v1, surface->v2, surface->v3);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+misc/func.h:32:34: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   32 | double vertex_span_volume(Vertex v1, Vertex v2, Vertex v3);
+      |                           ~~~~~~~^~
+misc/func.c:37:64: error: incompatible type for argument 2 of ‘vertex_span_volume’
+   37 |  volume = vertex_span_volume(surface->v1, surface->v2, surface->v3);
+      |                                           ~~~~~~~^~~~
+      |                                                  |
+      |                                                  Vertex *
+
+misc/func.h:32:45: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   32 | double vertex_span_volume(Vertex v1, Vertex v2, Vertex v3);
+      |                                      ~~~~~~~^~
+misc/func.c:37:77: error: incompatible type for argument 3 of ‘vertex_span_volume’
+   37 | = vertex_span_volume(surface->v1, surface->v2, surface->v3);
+      |                                                ~~~~~~~^~~~
+      |                                                       |
+      |                                                       Vertex *
+
+misc/func.h:32:56: note: expected ‘Vertex’ but argument is of type ‘Vertex *’
+   32 | double vertex_span_volume(Vertex v1, Vertex v2, Vertex v3);
+      |                                                 ~~~~~~~^~
+    ~/De/Y/I/droplets  gcc -o droplet_sim main.c misc/vars.c misc/func.c -lm
+    ~/De/Y/I/droplets  ./droplet_sim                         ✔ 
+Center of mass: x=0.000000, y=0.000000, z=0.001005 
+Potential energy: 0.000000 
+Surface energy: 0.000003 
+    ~/De/Y/I/droplets  python3 plot_surface.py               ✔ 
+    ~/De/Y/I/droplets  python3 plot_surface.py       ✔  29s  
+    ~/De/Y/I/droplets                                 ✔  9s  
