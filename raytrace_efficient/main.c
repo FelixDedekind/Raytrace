@@ -63,6 +63,7 @@ int main() {
     // raytrace beam over all angles
     Beam beam;
     Vertex intersection;
+    Vertex normal = {1., 0., 0.};
     int intersection_surface_index = 0;
     unsigned int ibeam = 0;
     for(int tt = 0; tt < theta_res; tt++) {
@@ -109,29 +110,18 @@ int main() {
 
             fprintf(fptr, "%f %f %f, ", beam.x, beam.y, beam.z);
             
+            refract(&beam, &normal);
+
             move_beam(&beam, d2/beam.vz);
 
             fprintf(fptr, "%f %f %f, ", beam.x, beam.y, beam.z);
 
             fprintf(fptr, "\n");
 
-            // if necessary, refract
-
-            // move until d1 (+ d2)
-
-            // // glass refraction
-
-            // // move by dd
-
-            // // glass refraction
-
-            // // move until d1 + d2 
-
-            // move_beam(&beam, d2/beam.vz);
 
             
             
-            Colour colour = evaluate_beam_lines(&beam);
+            Colour colour = evaluate_beam_circle(&beam, circle_radius);
 
 
             print_evaluation(theta_min + tt * (theta_max - theta_min) / theta_res, phi_min + pp * (phi_max - phi_min) / phi_res, colour, "evaluation.txt");

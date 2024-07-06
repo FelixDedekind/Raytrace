@@ -11,8 +11,9 @@ double theta_max = 0.02, phi_max = 2*PI;
 // also, the variables should be chosen such that phi_res = theta_m/phi_m * theta_res
 int theta_res = 5000, phi_res = 1;
 
-double lens_radius = 0.005;
+double lens_radius = 100.005; // probably no need to change this
 
+// radius of the circle we are looking at
 double circle_radius = 0.001;
 
 double line_dist = 0.0001;

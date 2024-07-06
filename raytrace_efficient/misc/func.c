@@ -113,7 +113,7 @@ Colour evaluate_beam_circle(Beam *beam, double R) {
     colour.g = 0;
     colour.b = 0;
     double r = sqrt(beam->x*beam->x + beam->y*beam->y);
-    if(r < R)   colour.r = (int)((R-r)/R*255.0);
+    if(r < R)   colour.r = 255;
     return colour;
 }
 
