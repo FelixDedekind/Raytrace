@@ -24,7 +24,7 @@ def capture_points(event, x, y, flags, param):
 
 # Define the directory path
 directory_path = 'images'
-output_path = 'magnification/out/out1.csv'
+output_path = 'magnification_exp/out/out1.csv'
 
 # Loop through each file in the directory
 
