@@ -63,7 +63,7 @@ int main() {
     // raytrace beam over all angles
     Beam beam;
     Vertex intersection;
-    Vertex normal = {1., 0., 0.};
+    Vertex normal = {0., 0., 1.}; // NOT SURE IF THIS SHOULD BE (0 0 1) or (0 0 -1)
     int intersection_surface_index = 0;
     unsigned int ibeam = 0;
     for(int tt = 0; tt < theta_res; tt++) {
@@ -98,6 +98,8 @@ int main() {
             beam.z = intersection.z;
 
 
+            fprintf(fptr, "%f %f %f, ", beam.x, beam.y, beam.z);
+
             refract(&beam, &normals[intersection_surface_index]);
 
             
@@ -110,7 +112,7 @@ int main() {
 
             fprintf(fptr, "%f %f %f, ", beam.x, beam.y, beam.z);
             
-            refract(&beam, &normal);
+            // refract(&beam, &normal);
 
             move_beam(&beam, d2/beam.vz);
 
