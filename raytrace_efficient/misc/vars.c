@@ -14,7 +14,7 @@ int theta_res = 5000, phi_res = 1;
 double lens_radius = 100.005; // probably no need to change this
 
 // radius of the circle we are looking at
-double circle_radius = 0.001;
+double circle_radius = 0.005;
 
 double line_dist = 0.0001;
 double line_width = 0.0001;
