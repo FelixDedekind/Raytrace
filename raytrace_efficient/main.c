@@ -15,7 +15,7 @@ int main() {
     Vertex *vertices;
     unsigned int num_thetas = 0;
     unsigned int num_phis = 0;
-    read_vertices_2d(&vertices, "./vertices.txt", &num_thetas, &num_phis);
+    read_vertices_2d(&vertices, "vertices.txt", &num_thetas, &num_phis);
     double dphi = (double)2*PI/num_phis;
     printf("Number of thetas and phis: %i %i \n", num_thetas, num_phis);
 
