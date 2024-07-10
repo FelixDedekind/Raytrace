@@ -36,15 +36,15 @@ class lens:
         self.x_vals = x_vals
         self.y_vals = y_vals
         self.shape_curve =interp1d(x_vals,y_vals, kind='cubic', fill_value="extrapolate") 
-        #self.spline = UnivariateSpline(x_vals,y_vals,s=0)
-        #self.derivative = self.spline.derivative()
+        self.spline = UnivariateSpline(x_vals,y_vals,s=0)
+        self.derivative = self.spline.derivative()
 
 
 
 
 
 class setup:
-    def __init__(self,lens,beams,dl,do,radius,num_pixels,glass_width, colour_func):
+    def __init__(self,lens,beams,dl,do,radius,num_pixels,glass_width, colour_func,target_size):
         self.lens = lens
         self.beams = beams
         self.dl = dl
@@ -53,6 +53,7 @@ class setup:
         self.num_pixels = num_pixels
         self.glass_width = glass_width
         self.colour_func = colour_func
+        self.target_size = target_size
     
     def generate_viewer_beams(self, n_beams):
         res = []
@@ -84,7 +85,7 @@ class setup:
 
 def plot_setup(setup,plot_focus,n):
     fig,ax = plt.subplots()
-    ax.set_xlim((0,setup.dl+setup.do))
+    ax.set_xlim((0,setup.dl+setup.do*1.1))
 
     #plot lens:
     xlens = setup.lens.x_vals
@@ -113,9 +114,12 @@ def plot_setup(setup,plot_focus,n):
         beam_i +=1
         d_sum += beam.d
         k_sum += beam.direction
-        ax.plot(beam.path_x,beam.path_y)
+        colour = 'black'
+        if beam.colour == 1:
+            colour = 'red'
+        ax.plot(beam.path_x,beam.path_y,c=colour)
         #ax.scatter(beam.path_x,beam.path_y)
-        ax.plot(beam.path_x,-np.array(beam.path_y))
+        ax.plot(beam.path_x,-np.array(beam.path_y), c=colour)
         #ax.scatter(beam.path_x,-np.array(beam.path_y))
         #xs = np.linspace(beam.path_x[-1],setup.dl+setup.do)
         #ax.plot(xs,beam.line(xs))
@@ -128,6 +132,12 @@ def plot_setup(setup,plot_focus,n):
         ys = [-setup.lens_radius,setup.lens_radius]
         ax.plot(xs,ys)
         print(f"Die Brennweite ist {x-setup.dl-np.max(xlens)}")
+    
+    #plot target
+    xs = np.array([1,1])*(setup.dl+setup.do)
+    ys = np.array([-1,1])
+    plt.plot(xs,ys*setup.target_size,color = 'red')
+    plt.plot(xs,ys*setup.lens_radius*5,color = 'black')
     
     
     
@@ -192,8 +202,8 @@ def trace_beams(setup):
             continue
 
         #refract when hitting the lens 
-        derivative_at_beam = derivative(setup.lens.shape_curve,beam.path_x[-1]-setup.dl,dx = 1e-12)
-        #derivative_at_beam = setup.lens.derivative(beam.path_x[-1]-setup.dl)
+        #derivative_at_beam = derivative(setup.lens.shape_curve,beam.path_x[-1]-setup.dl,dx = 1e-12)
+        derivative_at_beam = setup.lens.derivative(beam.path_x[-1]-setup.dl)
 
         angle_beam = np.arctan(beam.direction)
         angle_lens = np.arctan(derivative_at_beam)
@@ -245,7 +255,7 @@ def trace_beams(setup):
 
 def colour_beams(setup):
     for beam in setup.beams:
-        beam.colour = setup.colour_func(beam.path_y[-1])
+        beam.colour = setup.colour_func(beam.path_y[-1],setup.target_size)
 '''
 def colour_pixels(setup):
     pixels = np.zeros(setup.num_pixels)
@@ -313,19 +323,19 @@ xs = radius-xs
 #jplt.xlim((0,2*radius))
 #plt.ylim((0,2*radius))
 #plt.show()
-mycircularlens = lens(xs,ys)
+#mycircularlens = lens(xs,ys)
 
 
 ys = 10*xs**2
 #plt.plot(ys,xs)
 #plt.show()
-myparaboliclens = lens(ys,xs)
+#myparaboliclens = lens(ys,xs)
 
 
 
 
-def colour_func(y):
-    if np.abs(y) < 1e-4:
+def colour_func(y,target_size):
+    if np.abs(y) < target_size:
         return 1.
     return 0
 
@@ -337,9 +347,10 @@ mysetup = setup(
     radius=0.005,
     num_pixels=100,
     glass_width=1e-3,
-    colour_func = colour_func
+    colour_func = colour_func,
+    target_size = 1e-3
     )
-n_beams = 1000
+n_beams = 10000
 mysetup.generate_viewer_beams(n_beams)
 #print(len(mysetup.beams))
 #mysetup.generate_parallel_beams(50)
@@ -366,7 +377,18 @@ plt.plot(xs,pixels)
 plt.scatter(xs,pixels)
 plt.show()
 
-plot_setup(mysetup,True,n_beams/10)
+first_drop_index = 0
+threshold = 0.9
+
+while(pixels[first_drop_index]>threshold):
+    first_drop_index += 1
+
+cutoff_distance = xs[first_drop_index]
+
+print(f"cutoff_distance = {cutoff_distance}")
 
 
 
+
+
+plot_setup(mysetup,True,1000)
